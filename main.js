@@ -25,7 +25,7 @@ heightInput.addEventListener("keyup", function(event){
 charInput.addEventListener("keyup", function(event){
 		if(event.key==="Enter"){
 			character = getChar();
-			if (character != ""){
+			if (character !== ""){
 				var tree = createTreeObject(height,character);
 				treeBuilder(tree);
 			}else {alert("Please enter a value in both fields");}
