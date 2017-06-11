@@ -4,34 +4,47 @@ let heightInput = document.getElementById("height");
 let charInput = document.getElementById("character");
 var button = document.getElementById("submit");
 
-//add event listeners for click on submit button and enter in text box
+//declare global variables as placeholders
 var height=0;
 var character=null;
 
-// heightInput.addEventListener("keyup", function(event){
-// 		if (event.key==="Enter"){
+//add event listeners for click on submit button and enter in text box
 
-// 		height = getHeight();
-// 		return height;
-// 	}
+heightInput.addEventListener("keyup", function(event){
+		if (event.key==="Enter"){
 
-// })
+			height = getHeight();
+				if (height > 0 && isNaN(height)===false){
+
+				}else{ alert("Please enter a value in both fields.");
+			}
+		}
+
+})
+
+charInput.addEventListener("keyup", function(event){
+		if(event.key==="Enter"){
+			character = getChar();
+			if (character != ""){
+				var tree = createTreeObject(height,character);
+				treeBuilder(tree);
+			}else {alert("Please enter a value in both fields");}
+		}
+
+})
 
 
-// charInput.addEventListener("keyup", function(event){
-// 		if (event.key==="Enter"){
 
-// 		character = getChar();
-// 		return character;
-// 	}
-
-// })
 
 button.addEventListener("click", function(){
 	height = getHeight();
 	character = getChar();
+		if (height>0 && isNaN(height)===false && character != ""){
 	var tree = createTreeObject(height,character);
 	treeBuilder(tree);
+	}else {
+		alert("Please enter a value in both fields.");
+	}
 });
 
 //create functions to get value from each box
@@ -47,6 +60,7 @@ character= charInput.value;
 return character;
 }
 
+//create function to create object
 function createTreeObject(height, character){
 	var tree ={};
  	tree.height = height;
@@ -54,6 +68,7 @@ function createTreeObject(height, character){
   	return tree;
 }
 
+//create function to build the tree using user input
 function treeBuilder(object){
 
 for(i=1; i<=height; i++)
@@ -72,18 +87,3 @@ for(i=1; i<=height; i++)
 
 }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
