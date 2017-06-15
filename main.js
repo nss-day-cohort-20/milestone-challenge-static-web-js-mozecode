@@ -70,20 +70,26 @@ function createTreeObject(height, character){
 
 //create function to build the tree using user input
 function treeBuilder(object){
+var space=" ";
 
-for(i=1; i<=height; i++)
-{
-        //Print spaces?
-        // for(j=i; j<height; j++)
-        // {
-        //     console.log(" ");
-        // }
-        //Print tree
-        for(j=1; j<=(2*i-1); j++)
-        {
-            console.log(`${character}`);
-        }
-        console.log(" ");
+var string ="";
 
+// for(i=1; i<=height; i=i+2){
+// 	string += character;
+// 	console.log(string);
+// 	console.log(space);
+// 	string +=character;
+// 	}
+
+for(i=1; i<=height; i=i+2){
+	for(j=height; j<=0; j=j-2){
+		console.log (space);
+	}
+	string += character;
+	console.log(string);
+	console.log(space);
+	string +=character;
+	}
 }
-}
+
+
